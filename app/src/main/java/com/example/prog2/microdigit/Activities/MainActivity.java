@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     TextView nombre;
 
-
+//Hecho en clase//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
