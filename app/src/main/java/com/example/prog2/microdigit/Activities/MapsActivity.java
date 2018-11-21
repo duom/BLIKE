@@ -103,7 +103,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         });
-
+        //
     //arrastar y dejar en el mapa
 
         mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {

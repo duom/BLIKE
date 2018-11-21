@@ -124,10 +124,7 @@ public class MainActivity extends AppCompatActivity {
         menuItem.setChecked(true);
         getSupportActionBar().setTitle(menuItem.getTitle());
 
-
-
     }
-
 
     //boton burguer y ya
 
