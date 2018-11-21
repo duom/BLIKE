@@ -12,10 +12,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prog2.microdigit.Fragments.AlertsFragment;
 import com.example.prog2.microdigit.Fragments.EmailFragment;
+import com.example.prog2.microdigit.Fragments.FilterFragment;
 import com.example.prog2.microdigit.Fragments.InfoFragment;
 import com.example.prog2.microdigit.Fragments.MapFragment;
 import com.example.prog2.microdigit.R;
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    TextView nombre;
 
 
     @Override
@@ -33,12 +37,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setToolbar();
 
+        nombre = (TextView) findViewById(R.id.nombre);
+        Bundle parametros = this.getIntent().getExtras();
+        if(parametros !=null){
+            nombre.setText(getIntent().getExtras().getString("nombre"));
+        }
+
         //recogemos aqui el drawer y el navigation
 
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView=(NavigationView)findViewById(R.id.navview);
-
-
 
 
         //seleccionar elementos de un navigationView
@@ -53,12 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()){
 
-                    case R.id.menu_mail:
-                        fragment=new EmailFragment();
-                        fragmentTransaction=true;
-                        break;
 
-                    case R.id.menu_alert:
+                    case R.id.menu_tiempo:
                         fragment=new AlertsFragment();
                         fragmentTransaction=true;
                         break;
@@ -75,16 +79,18 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.menu_mapActivity:
 
-                        Intent intent = new Intent(MainActivity.this,MapsActivity.class);
-                        startActivity(intent);
+                        Intent intentMap = new Intent(MainActivity.this,MapsActivity.class);
+                        startActivity(intentMap);
                         break;
 
-                    case R.id.menu_enduro:
-                        Toast.makeText(MainActivity.this, "Lo mismo hermano", Toast.LENGTH_SHORT).show();
+                    case R.id.menu_filtros:
+                        fragment=new FilterFragment();
+                        fragmentTransaction=true;
                         break;
 
-                    case R.id.menu_downhill:
-                        Toast.makeText(MainActivity.this, "En desarrollo tt", Toast.LENGTH_SHORT).show();
+                    case R.id.menu_configuracion:
+                        Intent intentConfiguracion = new Intent(MainActivity.this,SettingsActivity.class);
+                        startActivity(intentConfiguracion);
                         break;
 
                     }
@@ -138,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
                 //ABRIR MENU LATERAL
                 drawerLayout.openDrawer(Gravity.START);
                 return true;
-
         }
 
         return super.onOptionsItemSelected(item);

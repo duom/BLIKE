@@ -3,18 +3,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/menu_mail"
-            android:icon="@android:drawable/ic_dialog_email"
-            android:title="Email" />
-        <item
-            android:id="@+id/menu_alert"
-            android:icon="@android:drawable/ic_dialog_alert"
-            android:title="Alerta bro" />
-        <item
-            android:id="@+id/menu_info"
-            android:icon="@android:drawable/ic_dialog_info"
-            android:title="Informatione" />
-        <item
             android:id="@+id/menu_map"
             android:icon="@android:drawable/ic_dialog_map"
             android:title="Mapa" />
@@ -22,6 +10,15 @@
             android:id="@+id/menu_mapActivity"
             android:icon="@android:drawable/ic_dialog_map"
             android:title="MapaActivity" />
+        <item
+            android:id="@+id/menu_tiempo"
+            android:icon="@android:drawable/ic_dialog_alert"
+            android:title="Tiempo" />
+        <item
+            android:id="@+id/menu_info"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Ayuda" />
+
     </group>
 
 
@@ -29,13 +26,13 @@
     <item android:title="Otras opciones">
         <menu>
             <item
-                android:id="@+id/menu_downhill"
+                android:id="@+id/menu_filtros"
                 android:icon="@android:drawable/ic_dialog_dialer"
-                android:title="DownHill"/>
+                android:title="@string/filtrosRuta"/>
             <item
-                android:id="@+id/menu_enduro"
+                android:id="@+id/menu_configuracion"
                 android:icon="@android:drawable/ic_dialog_dialer"
-                android:title="Enduro">
+                android:title="@string/config">
             </item>
         </menu>
     </item>
