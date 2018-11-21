@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.prog2.microdigit.Fragments.AddFragment;
 import com.example.prog2.microdigit.Fragments.TiempoFragment;
 import com.example.prog2.microdigit.Fragments.FilterFragment;
 import com.example.prog2.microdigit.Fragments.InfoFragment;
@@ -60,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.menu_tiempo:
                         fragment=new TiempoFragment();
+                        fragmentTransaction=true;
+                        break;
+
+                    case R.id.menu_addRuta:
+                        fragment=new AddFragment();
                         fragmentTransaction=true;
                         break;
 
