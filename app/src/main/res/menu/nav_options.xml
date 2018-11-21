@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_mail"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="Email" />
+        <item
+            android:id="@+id/menu_alert"
+            android:icon="@android:drawable/ic_dialog_alert"
+            android:title="Alerta bro" />
+        <item
+            android:id="@+id/menu_info"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Informatione" />
+        <item
+            android:id="@+id/menu_map"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="Mapa" />
+        <item
+            android:id="@+id/menu_mapActivity"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="MapaActivity" />
+    </group>
+
+
+
+    <item android:title="Otras opciones">
+        <menu>
+            <item
+                android:id="@+id/menu_downhill"
+                android:icon="@android:drawable/ic_dialog_dialer"
+                android:title="DownHill"/>
+            <item
+                android:id="@+id/menu_enduro"
+                android:icon="@android:drawable/ic_dialog_dialer"
+                android:title="Enduro">
+            </item>
+        </menu>
+    </item>
+
+
+</menu>
