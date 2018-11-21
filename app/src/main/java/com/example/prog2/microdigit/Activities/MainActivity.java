@@ -11,13 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.prog2.microdigit.Fragments.AlertsFragment;
-import com.example.prog2.microdigit.Fragments.EmailFragment;
+import com.example.prog2.microdigit.Fragments.TiempoFragment;
 import com.example.prog2.microdigit.Fragments.FilterFragment;
 import com.example.prog2.microdigit.Fragments.InfoFragment;
 import com.example.prog2.microdigit.Fragments.MapFragment;
@@ -63,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     case R.id.menu_tiempo:
-                        fragment=new AlertsFragment();
+                        fragment=new TiempoFragment();
                         fragmentTransaction=true;
                         break;
 

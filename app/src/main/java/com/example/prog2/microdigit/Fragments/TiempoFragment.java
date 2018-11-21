@@ -12,10 +12,10 @@ import com.example.prog2.microdigit.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmailFragment extends Fragment {
+public class TiempoFragment extends Fragment {
 
 
-    public EmailFragment() {
+    public TiempoFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class EmailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_email, container, false);
+        return inflater.inflate(R.layout.fragment_tiempo, container, false);
     }
 
 }
