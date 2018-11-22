@@ -77,12 +77,6 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction=true;
                         break;
 
-                    case R.id.menu_mapActivity:
-
-                        Intent intentMap = new Intent(MainActivity.this,MapsActivity.class);
-                        startActivity(intentMap);
-                        break;
-
                     case R.id.menu_filtros:
                         fragment=new FilterFragment();
                         fragmentTransaction=true;

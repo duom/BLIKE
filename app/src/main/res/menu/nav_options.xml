@@ -6,10 +6,6 @@
             android:id="@+id/menu_map"
             android:icon="@android:drawable/ic_dialog_map"
             android:title="Mapa" />
-        <item
-            android:id="@+id/menu_mapActivity"
-            android:icon="@android:drawable/ic_dialog_map"
-            android:title="MapaActivity" />
 
         <item
             android:id="@+id/menu_addRuta"
