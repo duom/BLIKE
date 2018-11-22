@@ -22,7 +22,6 @@ import com.example.prog2.microdigit.R;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     TextView nombre;
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setToolbar();
+
 
         nombre = (TextView) findViewById(R.id.nombre);
         Bundle parametros = this.getIntent().getExtras();
@@ -52,12 +52,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-
                 boolean fragmentTransaction= false;
                 Fragment fragment = null;
 
                 switch (menuItem.getItemId()){
-
 
                     case R.id.menu_tiempo:
                         fragment=new TiempoFragment();
@@ -108,12 +106,15 @@ public class MainActivity extends AppCompatActivity {
 
                        changeFragment(fragment, menuItem);
                         drawerLayout.closeDrawers();
-
                     }
 
                 return true;
             }
         });
+/// para que se inicie por defecto al iniciar la app el fragment map
+        MenuItem mapItem = navigationView.getMenu().findItem(R.id.menu_map);
+
+        changeFragment(new MapFragment(), mapItem);
 
     }
 
