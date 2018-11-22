@@ -95,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intentConfiguracion);
                         break;
 
+                    case R.id.menu_registro:
+                        Intent intentRegistro = new Intent(MainActivity.this,LogActivity.class);
+                        startActivity(intentRegistro);
+                        break;
+
                     }
 
 //aqui usamos el metodo creado abajo para cambiar de fragment (changeFRagment)

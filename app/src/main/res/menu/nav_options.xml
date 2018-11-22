@@ -20,10 +20,13 @@
             android:id="@+id/menu_tiempo"
             android:icon="@android:drawable/ic_dialog_alert"
             android:title="Tiempo" />
+
+
         <item
-            android:id="@+id/menu_info"
-            android:icon="@android:drawable/ic_dialog_info"
-            android:title="Ayuda" />
+            android:id="@+id/menu_filtros"
+            android:icon="@android:drawable/ic_dialog_dialer"
+            android:title="@string/filtrosRuta"/>
+
 
     </group>
 
@@ -31,15 +34,23 @@
 
     <item android:title="Otras opciones">
         <menu>
+
+
             <item
-                android:id="@+id/menu_filtros"
-                android:icon="@android:drawable/ic_dialog_dialer"
-                android:title="@string/filtrosRuta"/>
+                android:id="@+id/menu_registro"
+                android:icon="@android:drawable/ic_input_get"
+                android:title="Registrate!" />
+
             <item
                 android:id="@+id/menu_configuracion"
                 android:icon="@android:drawable/ic_dialog_dialer"
                 android:title="@string/config">
             </item>
+            <item
+                android:id="@+id/menu_info"
+                android:icon="@android:drawable/ic_dialog_info"
+                android:title="Ayuda" />
+
         </menu>
     </item>
 
