@@ -12,10 +12,11 @@
             android:icon="@android:drawable/ic_input_add"
             android:title="Añadir ruta" />
 
+
         <item
-            android:id="@+id/menu_tiempo"
+            android:id="@+id/menu_tiempoAct"
             android:icon="@android:drawable/ic_dialog_alert"
-            android:title="Tiempo" />
+            android:title="Tiempo hoy" />
 
 
         <item

@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.prog2.microdigit.Fragments.AddFragment;
-import com.example.prog2.microdigit.Fragments.TiempoFragment;
 import com.example.prog2.microdigit.Fragments.FilterFragment;
 import com.example.prog2.microdigit.Fragments.InfoFragment;
 import com.example.prog2.microdigit.Fragments.MapFragment;
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    TextView nombre;
+    //TextView nombre;
 
 //Hecho en clase//
     @Override
@@ -33,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setToolbar();
 
-
-        nombre = (TextView) findViewById(R.id.nombre);
-        Bundle parametros = this.getIntent().getExtras();
-        if(parametros !=null){
-            nombre.setText(getIntent().getExtras().getString("nombre"));
-        }
+//recuperar el nombre de pantalla de inicio para mostrar en navigation drawer
+        //nombre = (TextView) findViewById(R.id.nombre);
+        //Bundle parametros = this.getIntent().getExtras();
+        //if(parametros !=null){
+            //nombre.setText(getIntent().getExtras().getString("nombre"));
+        //}
 
         //recogemos aqui el drawer y el navigation
 
@@ -57,9 +56,12 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()){
 
-                    case R.id.menu_tiempo:
-                        fragment=new TiempoFragment();
-                        fragmentTransaction=true;
+
+                    case R.id.menu_tiempoAct:
+
+                        Intent intentWeather = new Intent(MainActivity.this, WeatherActivity.class);
+                        startActivity(intentWeather);
+
                         break;
 
                     case R.id.menu_addRuta:
