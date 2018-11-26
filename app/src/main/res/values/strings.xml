@@ -13,6 +13,13 @@
     <string name="filtrosRuta">Filtros de rutas</string>
     <string name="title_activity_settings">Settings</string>
 
+
+    <!-- PARSE-->
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">suHX6YcURFxypmhPduB3wxFM0MeUuYs5TRJe9DXJ</string>
+    <string name="back4app_client_key">bf78Ot5x2jTu7RYVMkdTqWAQ79W1rqcyuc6svg51</string>
+
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
