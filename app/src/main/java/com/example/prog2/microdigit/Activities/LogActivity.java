@@ -43,7 +43,7 @@ public class LogActivity extends AppCompatActivity {
 //            // show the signup or login screen
 //        }
 
-
+//
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
                 .clientKey(getString(R.string.back4app_client_key))
