@@ -20,7 +20,6 @@
 
     <string name="title_activity_settings">Settings</string>
 
-
     <!-- PARSE-->
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <string name="back4app_app_id">suHX6YcURFxypmhPduB3wxFM0MeUuYs5TRJe9DXJ</string>
