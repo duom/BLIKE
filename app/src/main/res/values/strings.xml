@@ -11,6 +11,13 @@
     <string name="login">Log In</string>
     <string name="config">Configuración</string>
     <string name="filtrosRuta">Filtros de rutas</string>
+    <string name="mapa">Mapa de rutas</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="addruta">Añade ruta</string>
+    <string name="filtrosRutsa">Filtros de rutas</string>
+    <string name="otrasopciones">Más opciones</string>
+    <string name="tiempohoy">Que tiempo hace?</string>
+
     <string name="title_activity_settings">Settings</string>
 
 
