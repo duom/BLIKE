@@ -9,16 +9,12 @@ import android.view.ViewGroup;
 
 import com.example.prog2.microdigit.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class InfoFragment extends Fragment {
 
 
     public InfoFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

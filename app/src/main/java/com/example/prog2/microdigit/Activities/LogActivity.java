@@ -28,7 +28,6 @@ public class LogActivity extends AppCompatActivity {
     EditText et1Log;
     EditText et2Log;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
