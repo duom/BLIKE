@@ -27,6 +27,9 @@ public class LogActivity extends AppCompatActivity {
 
     EditText et1Log;
     EditText et2Log;
+    //recojo usuario (array xq hago split despues de @)
+    String[] usuarioSign;
+    String[] usuarioLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,7 @@ public class LogActivity extends AppCompatActivity {
         et1Log = findViewById(R.id.et1Log);
         et2Log = findViewById(R.id.et2Log);
 
+
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +75,10 @@ public class LogActivity extends AppCompatActivity {
                         if (parseUser != null) {
                             Toast.makeText(LogActivity.this, "Bienvenido de nuevo "+et1Log.getText().toString(), Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(LogActivity.this,MainActivity.class);
+                            //envio nombre del login
+                            intent.putExtra("nombreLogin", et1Log.getText().toString());
                             startActivity(intent);
+
                         } else {
                             ParseUser.logOut();
                             Toast.makeText(LogActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -93,8 +100,10 @@ public class LogActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            Toast.makeText(LogActivity.this, "Registrado con exito", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LogActivity.this, "Registrado con exito "+et1Sign.getText().toString(), Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(LogActivity.this,MainActivity.class);
+                            //envio nombre del Sign
+                            intent.putExtra("nombreSign", et1Sign.getText().toString());
                             startActivity(intent);
 
                         } else {

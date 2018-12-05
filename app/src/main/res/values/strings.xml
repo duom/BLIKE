@@ -12,7 +12,7 @@
     <string name="config">Configuración</string>
     <string name="filtrosRuta">Filtros de rutas</string>
     <string name="mapa">Mapa de rutas</string>
-    <string name="ayuda">Ayuda</string>
+    <string name="info">Información</string>
     <string name="addruta">Añade ruta</string>
     <string name="filtrosRutsa">Filtros de rutas</string>
     <string name="otrasopciones">Más opciones</string>
@@ -97,4 +97,5 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="descenso_dificil">Descenso dificil</string>
 </resources>

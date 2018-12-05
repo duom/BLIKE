@@ -96,7 +96,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
             }
        }
-
+//
         //1 full mapa
         //5 nivel continente
         //10 nivel ciudad
@@ -109,6 +109,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mMap.setMaxZoomPreference(21);
 
         //LatLng hayma = new LatLng(41.452237940530296, 2.209321909764924);
+
         LatLng sanJeronimo = new LatLng(41.490057, 2.223802);
         LatLng flow = new LatLng(41.487486, 2.227633);
         LatLng calDimoni = new LatLng(41.486315, 2.227802);
@@ -117,10 +118,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         //añadios marcador y le decimos que sea draggable(true)
 
-//        mMap.addMarker(new MarkerOptions()
-//                .position(hayma)
-//                .title("Marcador de mi Hayma")
-//                .draggable(true));
+        mMap.addMarker(new MarkerOptions()
+                .position(sanJeronimo)
+                .title("Arrastra a donde quieras proponer nueva ruta")
+                .draggable(true));
+
 
         mMap.addMarker(new MarkerOptions()
                 .position(flow)
@@ -148,6 +150,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 .snippet("Descenso muy dificl")
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.bike_downhilldificil))
                 .draggable(true));
+
 //        mMap.addMarker(new MarkerOptions().position(hayma).title("Abre caigut").draggable(true));
 //        mMap.addMarker(new MarkerOptions().position(hayma).title("Clavicula").draggable(true));
 //        mMap.addMarker(new MarkerOptions().position(hayma).title("4 Pussy").draggable(true));
@@ -172,7 +175,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-                Toast.makeText(rootView.getContext(), "Click aqui: \n" +
+                Toast.makeText(rootView.getContext(), "BLIKER, este punto exacto es \n\n" +
                         "Lat: " + latLng.latitude + "\n" +
                         "Lon: " + latLng.longitude, Toast.LENGTH_SHORT).show();
             }
@@ -183,7 +186,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onMapLongClick(LatLng latLng) {
 
-                Toast.makeText(rootView.getContext(), "Largo Click aqui: \n" +
+                Toast.makeText(rootView.getContext(), "Hecho BLIKER! Ruta guardada en Favoritos \n\n" +
                         "Lat: " + latLng.latitude + "\n" +
                         "Lon: " + latLng.longitude, Toast.LENGTH_SHORT).show();
             }
@@ -204,12 +207,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onMarkerDragEnd(Marker marker) {
 
-                Toast.makeText(rootView.getContext(), "Draggenado Click aqui: \n" +
+
+                Toast.makeText(rootView.getContext(), "Bien! Propuesta de ruta añadida en la siguiente latitud \n\n" +
                         "Lat: " + marker.getPosition().latitude + "\n" +
                         "Lon: " + marker.getPosition().longitude, Toast.LENGTH_SHORT).show();
 
+
             }
         });
+
+
 
     }
 
