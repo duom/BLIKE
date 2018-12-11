@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.prog2.microdigit.Fragments.AddFragment;
@@ -33,16 +34,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setToolbar();
 
-//recuperar el nombre de pantalla de inicio para mostrar en navigation drawer
+//consulta del ParseUser.getCurrentUser().getUsername() y mostrarlo en el header
 
-        //navigationView = findViewById(R.id.navview);
-        //tvHead=findViewById(R.id.tvHead);
-        //tvHead.setText(ParseUser.getCurrentUser().getUsername());
+        navigationView = findViewById(R.id.navview);
 
-        //recogemos aqui el drawer y el navigation
+        View headerLayout = navigationView.inflateHeaderView(R.layout.header_navigation_drawer);
+        tvHead = headerLayout.findViewById(R.id.tvHead);
+        tvHead.setText(ParseUser.getCurrentUser().getUsername());
+
+        //recogemos aqui el drawer
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
-        navigationView=(NavigationView)findViewById(R.id.navview);
-
 
         //seleccionar elementos de un navigationView
 
@@ -113,15 +114,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setToolbar(){
-
-        Toolbar toolbar =(Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-    }
-
     //como cambiar de fragment
 
     private void changeFragment(Fragment fragment, MenuItem menuItem){
@@ -134,7 +126,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(menuItem.getTitle());
 
     }
+    private void setToolbar(){
 
+        Toolbar toolbar =(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
     //boton burguer y ya
 
     @Override

@@ -39,7 +39,7 @@ public class LogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
 
-        //1 RECOGER EL textview tvHead del header_navigation_drawer y cambiarlo por "ParseUser.getCurrentUser().getUsername()".
+
 
         //2 /////////**********AUTOLOGIN FALLA linea 44************////////
 
