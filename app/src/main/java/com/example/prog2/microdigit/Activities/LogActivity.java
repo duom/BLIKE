@@ -1,6 +1,8 @@
 package com.example.prog2.microdigit.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,7 @@ import com.parse.SignUpCallback;
 
 public class LogActivity extends AppCompatActivity {
 
+
     Button btnSign;
     Button btnLog;
 
@@ -36,13 +39,15 @@ public class LogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
 
-        ///////////**********AUTOLOGIN DONDE VA?************////////
+        //1 RECOGER EL textview tvHead del header_navigation_drawer y cambiarlo por "ParseUser.getCurrentUser().getUsername()".
+
+        //2 /////////**********AUTOLOGIN FALLA linea 44************////////
 
 //        ParseUser currentUser = ParseUser.getCurrentUser();
 //        if (currentUser != null) {
-//            // do stuff with the user
+//            Toast.makeText(this, "Estas logeado como "+ParseUser.getCurrentUser().getUsername(), Toast.LENGTH_SHORT).show();
 //        } else {
-//            // show the signup or login screen
+//            Toast.makeText(this, "NO estas logeado", Toast.LENGTH_SHORT).show();
 //        }
 
 //
@@ -54,8 +59,7 @@ public class LogActivity extends AppCompatActivity {
         );
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
-
-
+        
         btnLog = findViewById(R.id.btnLog);
         btnSign = findViewById(R.id.btnSign);
 
@@ -69,50 +73,66 @@ public class LogActivity extends AppCompatActivity {
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseUser.logInInBackground(et1Log.getText().toString(), et2Log.getText().toString(), new LogInCallback() {
-                    @Override
-                    public void done(ParseUser parseUser, ParseException e) {
-                        if (parseUser != null) {
-                            Toast.makeText(LogActivity.this, "Bienvenido de nuevo "+et1Log.getText().toString(), Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(LogActivity.this,MainActivity.class);
-                            //envio nombre del login
-                            intent.putExtra("nombreLogin", et1Log.getText().toString());
-                            startActivity(intent);
-
-                        } else {
-                            ParseUser.logOut();
-                            Toast.makeText(LogActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-
+                logIn();
             }
         });
 
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseUser user = new ParseUser();
+                signUp();
+            }
+        });
+
+    }
+
+    public void goToMain(){
+        Intent intent = new Intent(LogActivity.this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void signUp(){
+
+        ParseUser user = new ParseUser();
 // Set the user's username and password, which can be obtained by a forms
-                user.setUsername(et1Sign.getText().toString());
-                user.setPassword(et2Sign.getText().toString());
-                user.signUpInBackground(new SignUpCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            Toast.makeText(LogActivity.this, "Registrado con exito "+et1Sign.getText().toString(), Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(LogActivity.this,MainActivity.class);
-                            //envio nombre del Sign
-                            intent.putExtra("nombreSign", et1Sign.getText().toString());
-                            startActivity(intent);
+        user.setUsername(et1Sign.getText().toString());
+        user.setPassword(et2Sign.getText().toString());
+        user.signUpInBackground(new SignUpCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    Toast.makeText(LogActivity.this, "Registrado con exito "+et1Sign.getText().toString(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(LogActivity.this,MainActivity.class);
+                    //envio nombre del Sign
+                    intent.putExtra("nombreSign", et1Sign.getText().toString());
+                    startActivity(intent);
 
-                        } else {
-                            ParseUser.logOut();
-                            Toast.makeText(LogActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                } else {
+                    ParseUser.logOut();
+                    Toast.makeText(LogActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
+    }
+    public void logIn(){
+
+        ParseUser.logInInBackground(et1Log.getText().toString(), et2Log.getText().toString(), new LogInCallback() {
+            @Override
+            public void done(ParseUser parseUser, ParseException e) {
+                if (parseUser != null) {
+
+
+                    Toast.makeText(LogActivity.this, "Bienvenido de nuevo "+et1Log.getText().toString(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(LogActivity.this,MainActivity.class);
+                    //envio nombre del login
+                    intent.putExtra("nombreLogin", et1Log.getText().toString());
+                    startActivity(intent);
+
+                } else {
+                    ParseUser.logOut();
+                    Toast.makeText(LogActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                }
             }
         });
 

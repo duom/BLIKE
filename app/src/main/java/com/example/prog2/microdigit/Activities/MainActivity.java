@@ -18,14 +18,15 @@ import com.example.prog2.microdigit.Fragments.FilterFragment;
 import com.example.prog2.microdigit.Fragments.InfoFragment;
 import com.example.prog2.microdigit.Fragments.MapFragment;
 import com.example.prog2.microdigit.R;
+import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    //TextView nombre;
+    TextView tvHead;
 
-//Hecho en clase//
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +34,12 @@ public class MainActivity extends AppCompatActivity {
         setToolbar();
 
 //recuperar el nombre de pantalla de inicio para mostrar en navigation drawer
-        //nombre = (TextView) findViewById(R.id.nombre);
-        //Bundle parametros = this.getIntent().getExtras();
-        //if(parametros !=null){
-            //nombre.setText(getIntent().getExtras().getString("nombre"));
-        //}
+
+        //navigationView = findViewById(R.id.navview);
+        //tvHead=findViewById(R.id.tvHead);
+        //tvHead.setText(ParseUser.getCurrentUser().getUsername());
 
         //recogemos aqui el drawer y el navigation
-
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView=(NavigationView)findViewById(R.id.navview);
 

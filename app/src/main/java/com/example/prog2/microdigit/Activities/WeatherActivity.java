@@ -63,7 +63,7 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(WeatherActivity.this);
-                alertDialog.setTitle("Change City");
+                alertDialog.setTitle("Elige una ciudad");
                 final EditText input = new EditText(WeatherActivity.this);
                 input.setText(city);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -72,14 +72,14 @@ public class WeatherActivity extends AppCompatActivity {
                 input.setLayoutParams(lp);
                 alertDialog.setView(input);
 
-                alertDialog.setPositiveButton("Change",
+                alertDialog.setPositiveButton("Cambiar",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 city = input.getText().toString();
                                 taskLoadUp(city);
                             }
                         });
-                alertDialog.setNegativeButton("Cancel",
+                alertDialog.setNegativeButton("Cancelar",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
