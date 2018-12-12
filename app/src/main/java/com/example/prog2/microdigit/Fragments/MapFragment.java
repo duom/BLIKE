@@ -110,6 +110,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         //LatLng hayma = new LatLng(41.452237940530296, 2.209321909764924);
 
+        LatLng inicio = new LatLng(41.4556390483911, 2.2162818178078396);
         LatLng sanJeronimo = new LatLng(41.490057, 2.223802);
         LatLng flow = new LatLng(41.487486, 2.227633);
         LatLng calDimoni = new LatLng(41.486315, 2.227802);
@@ -149,7 +150,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 .position(regueros).title("Regueros")
                 .snippet("Descenso muy dificl")
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.bike_downhilldificil))
-                .draggable(true));
+                .draggable(false));
 
 //        mMap.addMarker(new MarkerOptions().position(hayma).title("Abre caigut").draggable(true));
 //        mMap.addMarker(new MarkerOptions().position(hayma).title("Clavicula").draggable(true));
@@ -162,8 +163,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         CameraPosition camera = new CameraPosition.Builder()
 
-                .target(sanJeronimo)
-                .zoom(14)
+                .target(inicio)
+                .zoom(12)
                 .bearing(90)
                 .tilt(45)
                 .build();
