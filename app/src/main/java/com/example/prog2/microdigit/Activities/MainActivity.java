@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     TextView tvHead;
+    private String[] userName;
 
 
     @Override
@@ -40,12 +41,15 @@ public class MainActivity extends AppCompatActivity {
 
         View headerLayout = navigationView.inflateHeaderView(R.layout.header_navigation_drawer);
         tvHead = headerLayout.findViewById(R.id.tvHead);
-        tvHead.setText(ParseUser.getCurrentUser().getUsername());
 
-        //recogemos aqui el drawer
+//Hago split para cortar solo el nombre del usuario y lo muetsro en el header
+        userName = ParseUser.getCurrentUser().getUsername().split("@");
+        tvHead.setText("Sesión de "+userName[0].toString().toUpperCase());
+
+    //recogemos aqui el drawer
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
 
-        //seleccionar elementos de un navigationView
+    //seleccionar elementos de un navigationView
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -94,7 +98,17 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intentRegistro);
                         break;
 
-                    }
+                    case R.id.menu_logOut:
+                        ParseUser.logOut();
+                        ParseUser currentUser = ParseUser.getCurrentUser();
+                        Intent intentLogOut = new Intent(MainActivity.this,LogActivity.class);
+                        startActivity(intentLogOut);
+                        break;
+
+                }
+
+
+
 
 //aqui usamos el metodo creado abajo para cambiar de fragment (changeFRagment)
 

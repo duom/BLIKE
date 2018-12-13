@@ -43,6 +43,11 @@
                 android:icon="@android:drawable/ic_dialog_dialer"
                 android:title="@string/config">
             </item>
+            <item
+                android:id="@+id/menu_logOut"
+                android:icon="@android:drawable/ic_lock_power_off"
+                android:title="@string/logOut">
+            </item>
 
 
         </menu>

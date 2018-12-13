@@ -21,6 +21,7 @@ import com.parse.SignUpCallback;
 
 public class LogActivity extends AppCompatActivity {
 
+    private String[] userName;
 
     Button btnSign;
     Button btnLog;
@@ -97,11 +98,13 @@ public class LogActivity extends AppCompatActivity {
 // Set the user's username and password, which can be obtained by a forms
         user.setUsername(et1Sign.getText().toString());
         user.setPassword(et2Sign.getText().toString());
+        userName = ParseUser.getCurrentUser().getUsername().split("@");
+        final String nombre = userName[0].toString().toUpperCase();
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    Toast.makeText(LogActivity.this, "Registrado con exito "+et1Sign.getText().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(LogActivity.this, "Registrado con exito "+nombre.toUpperCase(), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LogActivity.this,MainActivity.class);
                     //envio nombre del Sign
                     intent.putExtra("nombreSign", et1Sign.getText().toString());
@@ -121,9 +124,10 @@ public class LogActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser parseUser, ParseException e) {
                 if (parseUser != null) {
+                    userName = ParseUser.getCurrentUser().getUsername().split("@");
+                    final String nombre = userName[0].toString().toUpperCase();
 
-
-                    Toast.makeText(LogActivity.this, "Bienvenido de nuevo "+et1Log.getText().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(LogActivity.this, "Bienvenido de nuevo "+nombre, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LogActivity.this,MainActivity.class);
                     //envio nombre del login
                     intent.putExtra("nombreLogin", et1Log.getText().toString());
