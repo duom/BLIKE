@@ -8,14 +8,14 @@
             android:title="@string/mapa" />
 
         <item
+            android:id="@+id/menu_filtros"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="@string/filtrosRuta"/>
+
+        <item
             android:id="@+id/menu_addRuta"
             android:icon="@android:drawable/ic_input_add"
             android:title="@string/addruta" />
-
-        <item
-            android:id="@+id/menu_filtros"
-            android:icon="@android:drawable/ic_dialog_dialer"
-            android:title="@string/filtrosRuta"/>
 
         <item
             android:id="@+id/menu_info"

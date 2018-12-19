@@ -127,7 +127,7 @@ public class LogActivity extends AppCompatActivity {
                     userName = ParseUser.getCurrentUser().getUsername().split("@");
                     final String nombre = userName[0].toString().toUpperCase();
 
-                    Toast.makeText(LogActivity.this, "Bienvenido de nuevo "+nombre, Toast.LENGTH_LONG).show();
+                    Toast.makeText(LogActivity.this, "Bienvenido "+nombre, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LogActivity.this,MainActivity.class);
                     //envio nombre del login
                     intent.putExtra("nombreLogin", et1Log.getText().toString());

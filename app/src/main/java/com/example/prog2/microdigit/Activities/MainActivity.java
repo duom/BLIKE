@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Intent intentWeather = new Intent(MainActivity.this, WeatherActivity.class);
                         startActivity(intentWeather);
+                        overridePendingTransition(R.xml.fade_in, R.xml.fade_out);
 
                         break;
 
@@ -91,11 +92,13 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_configuracion:
                         Intent intentConfiguracion = new Intent(MainActivity.this,SettingsActivity.class);
                         startActivity(intentConfiguracion);
+                        overridePendingTransition(R.xml.fade_in, R.xml.fade_out);
                         break;
 
                     case R.id.menu_registro:
                         Intent intentRegistro = new Intent(MainActivity.this,LogActivity.class);
                         startActivity(intentRegistro);
+                        overridePendingTransition(R.xml.fade_in, R.xml.fade_out);
                         break;
 
                     case R.id.menu_logOut:
@@ -103,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                         ParseUser currentUser = ParseUser.getCurrentUser();
                         Intent intentLogOut = new Intent(MainActivity.this,LogActivity.class);
                         startActivity(intentLogOut);
+                        overridePendingTransition(R.xml.fade_in, R.xml.fade_out);
                         break;
 
                 }

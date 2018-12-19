@@ -70,8 +70,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-
-        //////////*********opcion 3 alberto********////////////
         gMap = googleMap;
 
         if (ActivityCompat.checkSelfPermission(MapFragment.this.getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapFragment.this.getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -165,7 +163,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
                 .target(inicio)
                 .zoom(12)
-                .bearing(90)
+                .bearing(0)
                 .tilt(45)
                 .build();
 
