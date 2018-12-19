@@ -8,12 +8,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Switch;
 
 import com.example.prog2.microdigit.R;
 
 public class FilterFragment extends Fragment {
 
     private View rootView;
+    private Switch switch1,switch2,switch3,switch4;
 
 
     public FilterFragment() {
@@ -34,7 +36,13 @@ public class FilterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //logica aqui
+        switch1 = rootView.findViewById(R.id.switchCarretera);
+        switch2 = rootView.findViewById(R.id.switchCarretera2);
+        switch3 = rootView.findViewById(R.id.switchCarretera3);
+        switch4 = rootView.findViewById(R.id.switchCarretera4);
+
+        switch2.setChecked(true);
+        switch3.setChecked(true);
 
     };
 

@@ -29,14 +29,13 @@
 
 
             <item
+                android:id="@+id/menu_tiempoAct"
+                android:icon="@android:drawable/ic_menu_compass"
+                android:title="@string/tiempohoy" />
+            <item
                 android:id="@+id/menu_registro"
                 android:icon="@android:drawable/ic_input_get"
                 android:title="@string/register" />
-
-            <item
-                android:id="@+id/menu_tiempoAct"
-                android:icon="@android:drawable/ic_dialog_alert"
-                android:title="@string/tiempohoy" />
 
             <item
                 android:id="@+id/menu_configuracion"

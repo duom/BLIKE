@@ -107,18 +107,20 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mMap.setMaxZoomPreference(21);
 
         //LatLng hayma = new LatLng(41.452237940530296, 2.209321909764924);
-
+        LatLng punteroDraggeable = new LatLng(41.484049448959944, 2.2130232948072717);
         LatLng inicio = new LatLng(41.4556390483911, 2.2162818178078396);
         LatLng sanJeronimo = new LatLng(41.490057, 2.223802);
         LatLng flow = new LatLng(41.487486, 2.227633);
         LatLng calDimoni = new LatLng(41.486315, 2.227802);
         LatLng mataMachos = new LatLng(41.488667, 2.227708);
         LatLng regueros = new LatLng(41.492123, 2.226508);
+        LatLng canAlemany = new LatLng(41.471316953601004, 2.2261124747999474);
+        LatLng raizes = new LatLng(41.47669708238709, 2.22447751250661);
 
         //añadios marcador y le decimos que sea draggable(true)
 
         mMap.addMarker(new MarkerOptions()
-                .position(sanJeronimo)
+                .position(punteroDraggeable)
                 .title("Arrastra a donde quieras proponer nueva ruta")
                 .draggable(true));
 
@@ -150,6 +152,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.bike_downhilldificil))
                 .draggable(false));
 
+        mMap.addMarker(new MarkerOptions()
+                .position(canAlemany).title("Can Alemany")
+                .snippet("Descenso moderado")
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.bike_downhillmedio))
+                .draggable(false));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(raizes).title("Raices")
+                .snippet("Descenso moderado")
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.bike_downhillmedio))
+                .draggable(false));
+
 //        mMap.addMarker(new MarkerOptions().position(hayma).title("Abre caigut").draggable(true));
 //        mMap.addMarker(new MarkerOptions().position(hayma).title("Clavicula").draggable(true));
 //        mMap.addMarker(new MarkerOptions().position(hayma).title("4 Pussy").draggable(true));
@@ -162,7 +176,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         CameraPosition camera = new CameraPosition.Builder()
 
                 .target(inicio)
-                .zoom(12)
+                .zoom(13)
                 .bearing(0)
                 .tilt(45)
                 .build();
