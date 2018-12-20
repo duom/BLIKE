@@ -40,26 +40,31 @@ public class LogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
 
+        //permite almacenar datos pero peta java.lang.IllegalStateException:`Parse#enableLocalDatastore(Context)` must be invoked before `Parse#initialize(Context)`
 
-
-        //2 /////////**********AUTOLOGIN FALLA linea 44************////////
-
-//        ParseUser currentUser = ParseUser.getCurrentUser();
-//        if (currentUser != null) {
-//            Toast.makeText(this, "Estas logeado como "+ParseUser.getCurrentUser().getUsername(), Toast.LENGTH_SHORT).show();
-//        } else {
-//            Toast.makeText(this, "NO estas logeado", Toast.LENGTH_SHORT).show();
-//        }
-
-//
+        //Parse.enableLocalDatastore(this);
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
                 .clientKey(getString(R.string.back4app_client_key))
                 .server(getString(R.string.back4app_server_url))
+                .enableLocalDataStore()
                 .build()
         );
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
+
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            Intent intent = new Intent(LogActivity.this,MainActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.xml.zoom_back_in, R.xml.zoom_back_out);
+
+            Toast.makeText(this, "Logeado como "+ParseUser.getCurrentUser().getUsername(), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+        }
+
         
         btnLog = findViewById(R.id.btnLog);
         btnSign = findViewById(R.id.btnSign);
@@ -109,6 +114,7 @@ public class LogActivity extends AppCompatActivity {
                     //envio nombre del Sign
                     intent.putExtra("nombreSign", et1Sign.getText().toString());
                     startActivity(intent);
+                    overridePendingTransition(R.xml.zoom_back_in, R.xml.zoom_back_out);
 
                 } else {
                     ParseUser.logOut();
@@ -132,6 +138,7 @@ public class LogActivity extends AppCompatActivity {
                     //envio nombre del login
                     intent.putExtra("nombreLogin", et1Log.getText().toString());
                     startActivity(intent);
+                    overridePendingTransition(R.xml.zoom_back_in, R.xml.zoom_back_out);
 
                 } else {
                     ParseUser.logOut();

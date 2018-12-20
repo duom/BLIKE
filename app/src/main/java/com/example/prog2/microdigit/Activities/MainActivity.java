@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()){
 
-
                     case R.id.menu_tiempoAct:
 
                         Intent intentWeather = new Intent(MainActivity.this, WeatherActivity.class);
