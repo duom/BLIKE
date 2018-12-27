@@ -3,6 +3,7 @@ package com.example.prog2.microdigit.Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prog2.microdigit.R;
+import com.marcoscg.materialtoast.MaterialToast;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -40,30 +42,28 @@ public class LogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
 
-        //permite almacenar datos pero peta java.lang.IllegalStateException:`Parse#enableLocalDatastore(Context)` must be invoked before `Parse#initialize(Context)`
-
         //Parse.enableLocalDatastore(this);
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
                 .clientKey(getString(R.string.back4app_client_key))
                 .server(getString(R.string.back4app_server_url))
-                .enableLocalDataStore()
+                //enableLocalDatastore(this)
                 .build()
         );
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
-
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        if (currentUser != null) {
-            Intent intent = new Intent(LogActivity.this,MainActivity.class);
-            startActivity(intent);
-            overridePendingTransition(R.xml.zoom_back_in, R.xml.zoom_back_out);
-
-            Toast.makeText(this, "Logeado como "+ParseUser.getCurrentUser().getUsername(), Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
-        }
+        //CURRENT USER
+//        ParseUser currentUser = ParseUser.getCurrentUser();
+//        if (currentUser != null) {
+//            Intent intent = new Intent(LogActivity.this,MainActivity.class);
+//            startActivity(intent);
+//            overridePendingTransition(R.xml.zoom_back_in, R.xml.zoom_back_out);
+//
+//            Toast.makeText(this, "Logeado como "+ParseUser.getCurrentUser().getUsername(), Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+//        }
 
         
         btnLog = findViewById(R.id.btnLog);
@@ -74,7 +74,6 @@ public class LogActivity extends AppCompatActivity {
 
         et1Log = findViewById(R.id.et1Log);
         et2Log = findViewById(R.id.et2Log);
-
 
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +93,7 @@ public class LogActivity extends AppCompatActivity {
 
     public void goToMain(){
         Intent intent = new Intent(LogActivity.this,MainActivity.class);
+        Toast.makeText(this, "Sesión de invitado", Toast.LENGTH_SHORT).show();
         startActivity(intent);
     }
 
@@ -103,16 +103,20 @@ public class LogActivity extends AppCompatActivity {
 // Set the user's username and password, which can be obtained by a forms
         user.setUsername(et1Sign.getText().toString());
         user.setPassword(et2Sign.getText().toString());
-        userName = ParseUser.getCurrentUser().getUsername().split("@");
-        final String nombre = userName[0].toString().toUpperCase();
+      //
+        //final String nombre = userName[0].toString().toUpperCase();
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    Toast.makeText(LogActivity.this, "Registrado con exito "+nombre.toUpperCase(), Toast.LENGTH_LONG).show();
+                    userName = ParseUser.getCurrentUser().getUsername().split("@");
+                    final String nombre = userName[0].toString().toUpperCase();
+
+                    //Toast.makeText(LogActivity.this, "Registrado con éxito "+nombre, Toast.LENGTH_LONG).show();
+                    MaterialToast.makeText(LogActivity.this, "Registrado con éxito "+nombre, Toast.LENGTH_SHORT)
+                            .setBackgroundColor(Color.GREEN)
+                            .show();
                     Intent intent = new Intent(LogActivity.this,MainActivity.class);
-                    //envio nombre del Sign
-                    intent.putExtra("nombreSign", et1Sign.getText().toString());
                     startActivity(intent);
                     overridePendingTransition(R.xml.zoom_back_in, R.xml.zoom_back_out);
 
@@ -132,11 +136,13 @@ public class LogActivity extends AppCompatActivity {
                 if (parseUser != null) {
                     userName = ParseUser.getCurrentUser().getUsername().split("@");
                     final String nombre = userName[0].toString().toUpperCase();
-
-                    Toast.makeText(LogActivity.this, "Bienvenido "+nombre, Toast.LENGTH_LONG).show();
+                    MaterialToast.makeText(LogActivity.this, "Bienvenido "+nombre, Toast.LENGTH_SHORT)
+                            .setBackgroundColor(Color.GREEN)
+                            .show();
+                    //Toast.makeText(LogActivity.this, "Bienvenido "+nombre, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LogActivity.this,MainActivity.class);
                     //envio nombre del login
-                    intent.putExtra("nombreLogin", et1Log.getText().toString());
+                    //intent.putExtra("nombreLogin", et1Log.getText().toString());
                     startActivity(intent);
                     overridePendingTransition(R.xml.zoom_back_in, R.xml.zoom_back_out);
 

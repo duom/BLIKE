@@ -2,6 +2,7 @@ package com.example.prog2.microdigit.Activities;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -13,12 +14,14 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.prog2.microdigit.Fragments.AddFragment;
 import com.example.prog2.microdigit.Fragments.FilterFragment;
 import com.example.prog2.microdigit.Fragments.InfoFragment;
 import com.example.prog2.microdigit.Fragments.MapFragment;
 import com.example.prog2.microdigit.R;
+import com.marcoscg.materialtoast.MaterialToast;
 import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         View headerLayout = navigationView.inflateHeaderView(R.layout.header_navigation_drawer);
         tvHead = headerLayout.findViewById(R.id.tvHead);
+
 
 //Hago split para cortar solo el nombre del usuario y lo muetsro en el header
         userName = ParseUser.getCurrentUser().getUsername().split("@");
@@ -97,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.menu_logOut:
                         ParseUser.logOut();
+                        MaterialToast.makeText(MainActivity.this, "Desconectando sesión...", Toast.LENGTH_SHORT)
+                                .setBackgroundColor(Color.RED)
+                                .show();
                         ParseUser currentUser = ParseUser.getCurrentUser();
                         Intent intentLogOut = new Intent(MainActivity.this,LogActivity.class);
                         startActivity(intentLogOut);

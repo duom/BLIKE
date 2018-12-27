@@ -26,16 +26,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
+//libreria bbdd
     implementation 'com.parse:parse-android:1.16.7'
+//libreria mapa
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
+
     implementation 'com.android.support:design:28.0.0'
 
     implementation 'com.android.support:support-v4:28.0.0'
-
+//libreria toast
+    //https://github.com/marcoscgdev/MaterialToast?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=7401
+    implementation 'com.github.marcoscgdev:MaterialToast:1.0.1'
 
 }
-
 
 repositories {
     mavenCentral()

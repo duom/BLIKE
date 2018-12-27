@@ -1,6 +1,7 @@
 package com.example.prog2.microdigit.Fragments;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.prog2.microdigit.R;
+import com.marcoscg.materialtoast.MaterialToast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,14 +48,19 @@ public class AddFragment extends Fragment {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(rootView.getContext(), "Gracias! Propuesta de ruta añadida", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(rootView.getContext(), "Gracias! Propuesta de ruta añadida", Toast.LENGTH_SHORT).show();
+                MaterialToast.makeText(rootView.getContext(), "Gracias! Propuesta de ruta añadida", Toast.LENGTH_SHORT)
+                        .setBackgroundColor(Color.GREEN)
+                        .show();
             }
         });
 
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(rootView.getContext(), "Valida rutas propuestas por la comunidad BLIKE", Toast.LENGTH_SHORT).show();
+                MaterialToast.makeText(rootView.getContext(), "Valida rutas propuestas por la comunidad BLIKE", Toast.LENGTH_SHORT)
+                        .setBackgroundColor(Color.GREEN)
+                        .show();
             }
         });
 
