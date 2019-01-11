@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
 //consulta del ParseUser.getCurrentUser().getUsername() y mostrarlo en el header
 
+        //test//
+
         navigationView = findViewById(R.id.navview);
 
         View headerLayout = navigationView.inflateHeaderView(R.layout.header_navigation_drawer);
